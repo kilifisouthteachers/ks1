@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSTW Member Registration</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>KSTW Member Registration</h1>
+    </header>
+    
+    <main>
+        <section id="registration-section">
+            <h2>Member Registration</h2>
+            <form id="registration-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="institution">Institution:</label>
+                <input type="text" id="institution" name="institution" required><br>
+                <label for="cluster">Cluster:</label>
+                <input type="text" id="cluster" name="cluster" required><br>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="contribution-section">
+            <h2>Make Contribution</h2>
+            <form id="contribution-form">
+                <label for="memberNumber">Membership Number:</label>
+                <input type="text" id="memberNumber" name="memberNumber" required><br>
+                <label for="amount">Amount (KES):</label>
+                <input type="number" id="amount" name="amount" required><br>
+                <label for="reason">Reason:</label>
+                <input type="text" id="reason" name="reason" required><br>
+                <button type="submit">Contribute</button>
+            </form>
+        </section>
+
+        <section id="report-section">
+            <h2>Generate Report</h2>
+            <form id="report-form">
+                <label for="format">Select Format:</label>
+                <select id="format" name="format">
+                    <option value="xl">Excel</option>
+                    <option value="docs">Word Document</option>
+                    <option value="csv">CSV</option>
+                    <option value="pdf">PDF</option>
+                </select><br>
+                <button type="submit">Generate Report</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 KSTW. All rights reserved.</p>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
