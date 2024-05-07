@@ -4,58 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSTW Member Registration</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .flash-message {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>KSTW Member Registration</h1>
-    </header>
-    
-    <main>
-        <section id="registration-section">
-            <h2>Member Registration</h2>
-            <form id="registration-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-                <label for="institution">Institution:</label>
-                <input type="text" id="institution" name="institution" required><br>
-                <label for="cluster">Cluster:</label>
-                <input type="text" id="cluster" name="cluster" required><br>
-                <button type="submit">Register</button>
-            </form>
-        </section>
+    <div class="flash-message" id="flash-message"></div>
 
-        <section id="contribution-section">
-            <h2>Make Contribution</h2>
-            <form id="contribution-form">
-                <label for="memberNumber">Membership Number:</label>
-                <input type="text" id="memberNumber" name="memberNumber" required><br>
-                <label for="amount">Amount (KES):</label>
-                <input type="number" id="amount" name="amount" required><br>
-                <label for="reason">Reason:</label>
-                <input type="text" id="reason" name="reason" required><br>
-                <button type="submit">Contribute</button>
-            </form>
-        </section>
+    <script>
+        let database = [];
 
-        <section id="report-section">
-            <h2>Generate Report</h2>
-            <form id="report-form">
-                <label for="format">Select Format:</label>
-                <select id="format" name="format">
-                    <option value="xl">Excel</option>
-                    <option value="docs">Word Document</option>
-                    <option value="csv">CSV</option>
-                    <option value="pdf">PDF</option>
-                </select><br>
-                <button type="submit">Generate Report</button>
-            </form>
-        </section>
-    </main>
+        function registerMember(name, institution, cluster) {
+            let membershipNumber = generateMembershipNumber();
+            notifyMember(name, membershipNumber);
 
-    <footer>
-        <p>&copy; 2024 KSTW. All rights reserved.</p>
-    </footer>
-    <script src="js/app.js"></script>
+            let flashMessage = `Dear ${name}, your registration was successful. Your membership number is: ${membershipNumber}`;
+            document.getElementById('flash-message').innerText = flashMessage;
+
+            redirectToLoginPage();
+
+            return membershipNumber;
+        }
+
+        function generateMembershipNumber() {
+            let prefix = "KSTW0001-24";
+            let uniqueNumber = Math.floor(Math.random() * 10000) + 1;
+            return prefix + uniqueNumber.toString().padStart(4, '0');
+        }
+
+        function notifyMember(name, membershipNumber) {
+            console.log(`Dear ${name}, your registration was successful. Your membership number is: ${membershipNumber}`);
+        }
+
+        function redirectToLoginPage() {
+            console.log("Redirecting to login page...");
+            setTimeout(() => {
+                console.log("Redirected to login page.");
+            }, 2000); 
+        }
+    </script>
 </body>
 </html>
